@@ -15,10 +15,10 @@ const PLANTS = [
 ];
 
 const COURSES = [
-    { id: 1, emoji: "🌱", title: "Jardinagem para Iniciantes", level: "Iniciante", duration: "45 min", lessons: 5, desc: "Aprenda os conceitos basicos sobre rega, luz e escolha do vaso ideal.", youtubeUrl: "https://www.youtube.com/watch?v=A8vGf_vXp2Q", topics: ["Como escolher a primeira planta", "Teste do dedo: quando regar", "Tipos de vasos e drenagem"] },
-    { id: 2, emoji: "✂️", title: "Arte da Propagacao e Mudas", level: "Iniciante", duration: "1h 15min", lessons: 6, desc: "Multiplique seu jardim fazendo mudas por estacas de nos ou folhas.", youtubeUrl: "https://www.youtube.com/watch?v=FjIuKxPnvpM", topics: ["Onde cortar: localizando o no", "Enraizamento na agua vs terra", "Cuidados com os brotos bebes"] },
-    { id: 3, emoji: "🪵", title: "Substratos e Solos Perfeitos", level: "Intermediario", duration: "50 min", lessons: 4, desc: "Crie misturas aeradas e nutritivas especificas para cada especie.", youtubeUrl: "https://www.youtube.com/watch?v=E-4W-02YfWw", topics: ["Perlita, fibra de coco e casca", "Solo para Monstera e Araceas", "Mistura para Cactos"] },
-    { id: 4, emoji: "🦟", title: "Guia de Combate a Pragas", level: "Intermediario", duration: "1h", lessons: 7, desc: "Aprenda a identificar e eliminar pragas usando receitas caseiras.", youtubeUrl: "https://www.youtube.com/watch?v=3R-gKq9K75w", topics: ["Identificacao de pragas comuns", "O poder do Oleo de Neem", "Como tratar fungos"] }
+    { id: 1, emoji: "🌱", title: "Jardinagem para Iniciantes", level: "Iniciante", duration: "45 min", lessons: 5, desc: "Aprenda os conceitos basicos sobre rega, luz e escolha do vaso ideal.", youtubeUrl: "https://youtu.be/4K6AKiK4ihA?si=0-T0_s52ExjH9U1W", topics: ["Como escolher a primeira planta", "Teste do dedo: quando regar", "Tipos de vasos e drenagem"] },
+    { id: 2, emoji: "✂️", title: "Arte da Propagacao e Mudas", level: "Iniciante", duration: "1h 15min", lessons: 6, desc: "Multiplique seu jardim fazendo mudas por estacas de nos ou folhas.", youtubeUrl: "https://youtu.be/-9pAkmfSHrQ?si=5ljNiTJidmq16tic", topics: ["Onde cortar: localizando o no", "Enraizamento na agua vs terra", "Cuidados com os brotos bebes"] },
+    { id: 3, emoji: "🪵", title: "Substratos e Solos Perfeitos", level: "Intermediario", duration: "50 min", lessons: 4, desc: "Crie misturas aeradas e nutritivas especificas para cada especie.", youtubeUrl: "https://youtu.be/mDlgsz9Cynw?si=roEcr5nT4W4gR0u8", topics: ["Perlita, fibra de coco e casca", "Solo para Monstera e Araceas", "Mistura para Cactos"] },
+    { id: 4, emoji: "🦟", title: "Guia de Combate a Pragas", level: "Intermediario", duration: "1h", lessons: 7, desc: "Aprenda a identificar e eliminar pragas usando receitas caseiras.", youtubeUrl: "https://youtu.be/cliVNvyFZbI?si=XgBj4wATLvWNr8zn", topics: ["Identificacao de pragas comuns", "O poder do Oleo de Neem", "Como tratar fungos"] }
 ];
 
 const REWARDS = [
