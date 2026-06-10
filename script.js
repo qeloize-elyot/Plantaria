@@ -1,30 +1,31 @@
+
 // ==========================================
 // 1. BANCO DE DADOS DO APP (PLANTAS E CURSOS)
 // ==========================================
 
 const PLANTS = [
-    { id: 1, name: "Costela de Adão", nick: "Monstera Deliciosa", origin: "Florestas Tropicais do México", price: 89.90, difficulty: "Fácil", light: "Meia sombra", water: "2x por semana", brotos: 45, imageUrl: "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?q=80&w=600", tag: "Popular", desc: "Suas folhas recortadas icônicas são desenhadas naturalmente para deixar o vento passante e a luz chegar às folhas de baixo.", curiosity: "Na era vitoriana, ter uma Monstera em sua sala de estar indicava alta classe social e espírito de exploração botânica." },
-    { id: 2, name: "Ficus Lyrata", nick: "Figueira-Lira", origin: "Oeste da África", price: 180.00, difficulty: "Média", light: "Muita luz indireta", water: "1x por semana", brotos: 90, imageUrl: "https://images.unsplash.com/photo-1597055181300-e3633a207518?q=80&w=600", tag: "Rara", desc: "Uma planta majestosa com folhas grandes em formato de lira, altamente decorativa e imponente.", curiosity: "Em seu habitat natural africano, ela pode crescer como uma planta epífita, germinando no topo de outras árvores." },
-    { id: 3, name: "Espada de São Jorge", nick: "Sansevieria Trifasciata", origin: "África Ocidental", price: 45.00, difficulty: "Fácil", light: "Qualquer luz", water: "1x a cada 15 dias", brotos: 20, imageUrl: "https://images.unsplash.com/photo-1596547609652-9cf5d8d76921?q=80&w=600", tag: "Resistente", desc: "Folhas verticais rígidas e coriáceas. Extremamente durável e limpa o ar de toxinas comuns.", curiosity: "A NASA a listou oficialmente como uma das melhores plantas para purificar o ar dentro de naves e estações espaciais." },
-    { id: 4, name: "Orquídea Mariposa", nick: "Phalaenopsis", origin: "Sudeste Asiático", price: 75.00, difficulty: "Média", light: "Luz filtrada", water: "1x por semana", brotos: 40, imageUrl: "https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?q=80&w=600", tag: "Clássica", desc: "Flores delicadas que lembram o voo de mariposas. Perfeitas para ambientes internos iluminados.", curiosity: "Na China antiga, as orquídeas eram cultivadas pelo próprio filósofo Confúcio, que as chamava de 'Rainhas das Fragrâncias'." },
-    { id: 5, name: "Planta Néon", nick: "Pothos Neon", origin: "Ilhas Salomão", price: 55.00, difficulty: "Fácil", light: "Média luz", water: "2x por semana", brotos: 25, imageUrl: "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?q=80&w=600", tag: "Pendente", desc: "Folhagem de tom verde-limão vibrante que cresce em cascatas exuberantes.", curiosity: "É uma das poucas plantas de casa que sobrevive muito bem cultivada diretamente na água por anos." },
-    { id: 6, name: "Begônia Maculata", nick: "Begonia Tamaya", origin: "Florestas Tropicais do Brasil", price: 120.00, difficulty: "Especialista", light: "Luz indireta filtrada", water: "2x por semana", brotos: 60, imageUrl: "https://images.unsplash.com/photo-1612360566326-8098b67f10b7?q=80&w=600", tag: "Colecionador", desc: "Folhas verde-oliva escuras cobertas com bolinhas brancas perfeitas e verso vermelho-sangue.", curiosity: "Diz a lenda fashion que o designer Christian Louboutin se inspirou no verso vermelho da Begônia Maculata para criar suas icônicas solas de sapato." },
-    { id: 7, name: "Calathea Triostar", nick: "Stromanthe Thalia", origin: "América do Sul", price: 95.00, difficulty: "Especialista", light: "Sombra úmida", water: "3x por semana", brotos: 50, imageUrl: "https://images.unsplash.com/photo-1545167622-3a6ac756afa4?q=80&w=600", tag: "Exótica", desc: "Folhas pintadas à mão pela natureza em tons de rosa, creme e verde.", curiosity: "Pertence à família das 'plantas rezadeiras': à noite suas folhas se levantam verticalmente como mãos em oração." },
-    { id: 8, name: "Cacto Macarrão", nick: "Rhipsalis Baccifera", origin: "América Central e África", price: 40.00, difficulty: "Fácil", light: "Meia sombra", water: "1x por semana", brotos: 20, imageUrl: "https://images.unsplash.com/photo-1509423424749-37312a3d4643?q=80&w=600", tag: "Diferente", desc: "Um cacto que quebra as regras: não tem espinhos, adora umidade e vive pendurado em árvores.", curiosity: "É uma das poucas espécies de cacto nativas encontradas naturalmente fora das Américas, cruzando o Atlântico séculos atrás." },
-    { id: 9, name: "Zamioculca", nick: "Zamioculcas Zamiifolia", origin: "África Oriental", price: 65.00, difficulty: "Fácil", light: "Sombra total a Sol", water: "1x a cada 20 dias", brotos: 30, imageUrl: "https://images.unsplash.com/photo-1632205510651-7f938c4bdf45?q=80&w=600", tag: "Escritório", desc: "Folhas enceradas ultra brilhantes que parecem artificiais. Sobrevive a grandes períodos de negligência.", curiosity: "No Sudeste Asiático, ela é chamada de 'Árvore de Ouro' por atrair prosperidade e estabilidade financeira onde é colocada." }
+    { id: 1, name: "Costela de Adao", nick: "Monstera Deliciosa", origin: "Florestas Tropicais do Mexico", price: 89.90, difficulty: "Facil", light: "Meia sombra", water: "2x por semana", brotos: 45, imageUrl: "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?q=80&w=600", tag: "Popular", desc: "Suas folhas recortadas iconicas sao desenhadas naturalmente para deixar o vento passar.", curiosity: "Na era vitoriana, ter uma Monstera indicava alta classe social." },
+    { id: 2, name: "Ficus Lyrata", nick: "Figueira-Lira", origin: "Oeste da Africa", price: 180.00, difficulty: "Media", light: "Muita luz indireta", water: "1x por semana", brotos: 90, imageUrl: "https://images.unsplash.com/photo-1597055181300-e3633a207518?q=80&w=600", tag: "Rara", desc: "Uma planta majestosa com folhas grandes em formato de lira.", curiosity: "Em seu habitat natural, ela pode crescer como uma planta epifita." },
+    { id: 3, name: "Espada de Sao Jorge", nick: "Sansevieria Trifasciata", origin: "Africa Ocidental", price: 45.00, difficulty: "Facil", light: "Qualquer luz", water: "1x a cada 15 dias", brotos: 20, imageUrl: "https://images.unsplash.com/photo-1596547609652-9cf5d8d76921?q=80&w=600", tag: "Resistente", desc: "Folhas verticais rigidas. Extremamente duravel e limpa o ar de toxinas.", curiosity: "A NASA a listou oficialmente como uma das melhores plantas para purificar o ar." },
+    { id: 4, name: "Orquidea Mariposa", nick: "Phalaenopsis", origin: "Sudeste Asiatico", price: 75.00, difficulty: "Media", light: "Luz filtrada", water: "1x por semana", brotos: 40, imageUrl: "https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?q=80&w=600", tag: "Classica", desc: "Flores delicadas que lembram o voo de mariposas.", curiosity: "Na China antiga, as orquideas eram cultivadas por Confucio." },
+    { id: 5, name: "Planta Neon", nick: "Pothos Neon", origin: "Ilhas Salomao", price: 55.00, difficulty: "Facil", light: "Media luz", water: "2x por semana", brotos: 25, imageUrl: "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?q=80&w=600", tag: "Pendente", desc: "Folhagem de tom verde-limao vibrante que cresce em cascatas.", curiosity: "Sobrevive muito bem cultivada diretamente na agua por anos." },
+    { id: 6, name: "Begonia Maculata", nick: "Begonia Tamaya", origin: "Florestas do Brasil", price: 120.00, difficulty: "Especialista", light: "Luz indireta", water: "2x por semana", brotos: 60, imageUrl: "https://images.unsplash.com/photo-1612360566326-8098b67f10b7?q=80&w=600", tag: "Colecionador", desc: "Folhas cobertas com bolinhas brancas perfeitas e verso vermelho.", curiosity: "Diz a lenda que Louboutin se inspirou nela para criar suas solas vermelhas." },
+    { id: 7, name: "Calathea Triostar", nick: "Stromanthe Thalia", origin: "America do Sul", price: 95.00, difficulty: "Especialista", light: "Sombra umida", water: "3x por semana", brotos: 50, imageUrl: "https://images.unsplash.com/photo-1545167622-3a6ac756afa4?q=80&w=600", tag: "Exotica", desc: "Folhas pintadas com tons de rosa, creme e verde.", curiosity: "A noite suas folhas se levantam verticalmente como maos em oracao." },
+    { id: 8, name: "Cacto Macarrao", nick: "Rhipsalis Baccifera", origin: "America Central", price: 40.00, difficulty: "Facil", light: "Meia sombra", water: "1x por semana", brotos: 20, imageUrl: "https://images.unsplash.com/photo-1509423424749-37312a3d4643?q=80&w=600", tag: "Diferente", desc: "Um cacto sem espinhos que adora humidade e vive em arvores.", curiosity: "E uma das poucas especies de cacto nativas fora das Americas." },
+    { id: 9, name: "Zamioculca", nick: "Zamioculcas Zamiifolia", origin: "Africa Oriental", price: 65.00, difficulty: "Facil", light: "Sombra total", water: "1x a cada 20 dias", brotos: 30, imageUrl: "https://images.unsplash.com/photo-1632205510651-7f938c4bdf45?q=80&w=600", tag: "Escritorio", desc: "Folhas brilhantes que parecem artificiais. Super resistente.", curiosity: "E chamada de Arvore de Ouro por atrair prosperidade." }
 ];
 
 const COURSES = [
-    { id: 1, emoji: "🌱", title: "Jardinagem para Iniciantes", level: "Iniciante", duration: "45 min", lessons: 5, desc: "Aprenda a não matar mais nenhuma planta. Conceitos básicos sobre rega, luz e escolha do vaso ideal.", youtubeUrl: "https://www.youtube.com/watch?v=A8vGf_vXp2Q", topics: ["Como escolher a primeira planta", "O teste do dedo: quando regar", "Tipos de vasos e drenagem correta", "Identificando excesso ou falta de sol"] },
-    { id: 2, emoji: "✂️", title: "Arte da Propagação e Mudas", level: "Iniciante", duration: "1h 15min", lessons: 6, desc: "Multiplique seu jardim de graça fazendo mudas por estacas de nós, folhas ou divisão de raízes.", youtubeUrl: "https://www.youtube.com/watch?v=FjIuKxPnvpM", topics: ["Onde cortar: localizando o nó", "Enraizamento na água vs na terra", "Cuidados com os brotos bebês", "Hormônios enraizadores naturais"] },
-    { id: 3, emoji: "🪵", title: "Substratos e Solos Perfeitos", level: "Intermediário", duration: "50 min", lessons: 4, desc: "Esqueça a terra preta comum. Crie misturas aeradas e nutritivas específicas para cada espécie.", youtubeUrl: "https://www.youtube.com/watch?v=E-4W-02YfWw", topics: ["Perlita, fibra de coco e casca de pínus", "Montando solo para Monstera e Aráceas", "Drenagem perfeita para Cactos e Suculentas", "Adubação orgânica básica"] },
-    { id: 4, emoji: "🦟", title: "Guia de Combate a Pragas", level: "Intermediário", duration: "1h", lessons: 7, desc: "Aprenda a identificar e eliminar cochonilhas, ácaros e fungos usando receitas 100% caseiras.", youtubeUrl: "https://www.youtube.com/watch?v=3R-gKq9K75w", topics: ["Identificação visual de pragas comuns", "O poder do Óleo de Neem e Sabão de Coco", "Como tratar fungos nas folhas", "Isolamento de plantas doentes"] }
+    { id: 1, emoji: "🌱", title: "Jardinagem para Iniciantes", level: "Iniciante", duration: "45 min", lessons: 5, desc: "Aprenda os conceitos basicos sobre rega, luz e escolha do vaso ideal.", youtubeUrl: "https://www.youtube.com/watch?v=A8vGf_vXp2Q", topics: ["Como escolher a primeira planta", "Teste do dedo: quando regar", "Tipos de vasos e drenagem"] },
+    { id: 2, emoji: "✂️", title: "Arte da Propagacao e Mudas", level: "Iniciante", duration: "1h 15min", lessons: 6, desc: "Multiplique seu jardim fazendo mudas por estacas de nos ou folhas.", youtubeUrl: "https://www.youtube.com/watch?v=FjIuKxPnvpM", topics: ["Onde cortar: localizando o no", "Enraizamento na agua vs terra", "Cuidados com os brotos bebes"] },
+    { id: 3, emoji: "🪵", title: "Substratos e Solos Perfeitos", level: "Intermediario", duration: "50 min", lessons: 4, desc: "Crie misturas aeradas e nutritivas especificas para cada especie.", youtubeUrl: "https://www.youtube.com/watch?v=E-4W-02YfWw", topics: ["Perlita, fibra de coco e casca", "Solo para Monstera e Araceas", "Mistura para Cactos"] },
+    { id: 4, emoji: "🦟", title: "Guia de Combate a Pragas", level: "Intermediario", duration: "1h", lessons: 7, desc: "Aprenda a identificar e eliminar pragas usando receitas caseiras.", youtubeUrl: "https://www.youtube.com/watch?v=3R-gKq9K75w", topics: ["Identificacao de pragas comuns", "O poder do Oleo de Neem", "Como tratar fungos"] }
 ];
 
 const REWARDS = [
-    { id: 1, emoji: "🎟️", title: "Cupom de Frete Grátis", cost: 100, desc: "Isenção total do frete para qualquer pedido de planta do catálogo." },
-    { id: 2, emoji: "🪴", title: "Vaso de Cerâmica Artesanal", cost: 250, desc: "Um vaso exclusivo feito à mão por ceramistas locais parceiros." },
-    { id: 3, emoji: "🧪", title: "Kit Nutrição Premium", cost: 400, desc: "Combo com adubo orgânico concentrado e borrifador vintage de vidro." }
+    { id: 1, emoji: "🎟️", title: "Cupom de Frete Gratis", cost: 100, desc: "Isencao total do frete para qualquer pedido de planta." },
+    { id: 2, emoji: "🪴", title: "Vaso de Ceramica Artesanal", cost: 250, desc: "Um vaso exclusivo feito a mao por parceiros locais." },
+    { id: 3, emoji: "🧪", title: "Kit Nutricao Premium", cost: 400, desc: "Combo com adubo organico concentrado e borrifador." }
 ];
 
 // ==========================================
@@ -36,14 +37,14 @@ let selectedGiftPlantId = null;
 let currentDifficultyFilter = "Todas";
 let currentCourseFilter = "Todos";
 
-// Carregar dados iniciais e usuários fictícios se não existirem
+// Inicializar banco local fictício se não existir
 if (!localStorage.getItem("fl_users")) {
     localStorage.setItem("fl_users", JSON.stringify([
-        { name: "Admin Florescer", email: "admin@florescer.com", password: "123", brotos: 247, history: [{ action: "Bônus de Boas-vindas", val: 247, type: "plus", date: "10/06/2026" }] }
+        { name: "Admin Florescer", email: "admin@florescer.com", password: "123", brotos: 247, history: [{ action: "Bonus de Boas-vindas", val: 247, type: "plus", date: "10/06/2026" }] }
     ]));
 }
 
-// Inicialização ao carregar a página
+// Inicialização ao carregar o DOM
 document.addEventListener("DOMContentLoaded", () => {
     checkSession();
     setupEventListeners();
@@ -66,92 +67,116 @@ function checkSession() {
 // 3. EVENTOS DO SISTEMA DE AUTENTICAÇÃO
 // ==========================================
 function setupEventListeners() {
-    document.getElementById("form-login").addEventListener("submit", (e) => {
-        e.preventDefault();
-        const email = document.getElementById("login-email").value.trim();
-        const senha = document.getElementById("login-senha").value;
-        const errDiv = document.getElementById("login-error");
+    const loginForm = document.getElementById("form-login");
+    if (loginForm) {
+        loginForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const email = document.getElementById("login-email").value.trim();
+            const senha = document.getElementById("login-senha").value;
+            const errDiv = document.getElementById("login-error");
 
-        const users = JSON.parse(localStorage.getItem("fl_users"));
-        const user = users.find(u => u.email === email && u.password === senha);
+            const users = JSON.parse(localStorage.getItem("fl_users"));
+            const user = users.find(u => u.email === email && u.password === senha);
 
-        if (user) {
-            currentUser = user;
+            if (user) {
+                currentUser = user;
+                localStorage.setItem("fl_current_session", email);
+                if (errDiv) errDiv.style.display = "none";
+                showApp();
+                showToast(`Bem-vindo, ${user.name}!`);
+            } else {
+                if (errDiv) {
+                    errDiv.innerText = "E-mail ou senha incorretos.";
+                    errDiv.style.display = "block";
+                }
+            }
+        });
+    }
+
+    const registerForm = document.getElementById("form-register");
+    if (registerForm) {
+        registerForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const name = document.getElementById("reg-name").value.trim();
+            const email = document.getElementById("reg-email").value.trim();
+            const senha = document.getElementById("reg-senha").value;
+            const errDiv = document.getElementById("register-error");
+
+            if (senha.length < 6) {
+                if (errDiv) {
+                    errDiv.innerText = "A senha deve ter pelo menos 6 caracteres.";
+                    errDiv.style.display = "block";
+                }
+                return;
+            }
+
+            const users = JSON.parse(localStorage.getItem("fl_users"));
+            if (users.some(u => u.email === email)) {
+                if (errDiv) {
+                    errDiv.innerText = "Este e-mail ja esta cadastrado.";
+                    errDiv.style.display = "block";
+                }
+                return;
+            }
+
+            const newUser = {
+                name: name,
+                email: email,
+                password: senha,
+                brotos: 50,
+                history: [{ action: "Cadastro na Plataforma", val: 50, type: "plus", date: "10/06/2026" }]
+            };
+
+            users.push(newUser);
+            localStorage.setItem("fl_users", JSON.stringify(users));
+            currentUser = newUser;
             localStorage.setItem("fl_current_session", email);
-            errDiv.style.display = "none";
+
+            if (errDiv) errDiv.style.display = "none";
             showApp();
-            showToast(`Bem-vindo, ${user.name}!`);
-        } else {
-            errDiv.innerText = "E-mail ou senha incorretos.";
-            errDiv.style.display = "block";
-        }
-    });
+            showToast("Conta criada com sucesso! Ganhou 50 Brotos 🌱");
+        });
+    }
 
-    document.getElementById("form-register").addEventListener("submit", (e) => {
-        e.preventDefault();
-        const name = document.getElementById("reg-name").value.trim();
-        const email = document.getElementById("reg-email").value.trim();
-        const senha = document.getElementById("reg-senha").value;
-        const errDiv = document.getElementById("register-error");
-
-        if (senha.length < 6) {
-            errDiv.innerText = "A senha deve ter pelo menos 6 caracteres.";
-            errDiv.style.display = "block";
-            return;
-        }
-
-        const users = JSON.parse(localStorage.getItem("fl_users"));
-        if (users.some(u => u.email === email)) {
-            errDiv.innerText = "Este e-mail já está cadastrado.";
-            errDiv.style.display = "block";
-            return;
-        }
-
-        const newUser = {
-            name: name,
-            email: email,
-            password: senha,
-            brotos: 50, // Ganha 50 brotos ao se cadastrar
-            history: [{ action: "Cadastro na Plataforma", val: 50, type: "plus", date: "10/06/2026" }]
-        };
-
-        users.push(newUser);
-        localStorage.setItem("fl_users", JSON.stringify(users));
-        currentUser = newUser;
-        localStorage.setItem("fl_current_session", email);
-
-        errDiv.style.display = "none";
-        showApp();
-        showToast("Conta criada com sucesso! Ganhou 50 Brotos 🌱");
-    });
-
-    // Filtro de pesquisa de plantas por input em tempo real
-    document.getElementById("search-plant").addEventListener("input", (e) => {
-        renderCatalog();
-    });
+    const searchInput = document.getElementById("search-plant");
+    if (searchInput) {
+        searchInput.addEventListener("input", () => {
+            renderCatalog();
+        });
+    }
 }
 
 function toggleAuthMode(isLogin) {
-    document.getElementById("login-card").style.display = isLogin ? "block" : "none";
-    document.getElementById("register-card").style.display = isLogin ? "none" : "block";
-    document.getElementById("login-error").style.display = "none";
-    document.getElementById("register-error").style.display = "none";
+    const loginCard = document.getElementById("login-card");
+    const regCard = document.getElementById("register-card");
+    const logErr = document.getElementById("login-error");
+    const regErr = document.getElementById("register-error");
+
+    if (loginCard) loginCard.style.display = isLogin ? "block" : "none";
+    if (regCard) regCard.style.display = isLogin ? "none" : "block";
+    if (logErr) logErr.style.display = "none";
+    if (regErr) regErr.style.display = "none";
 }
 
 function showAuth() {
-    document.getElementById("auth-screen").style.display = "grid";
-    document.getElementById("app-screen").style.display = "none";
+    const authScr = document.getElementById("auth-screen");
+    const appScr = document.getElementById("app-screen");
+    if (authScr) authScr.style.display = "grid";
+    if (appScr) appScr.style.display = "none";
 }
 
 function showApp() {
-    document.getElementById("auth-screen").style.display = "none";
-    document.getElementById("app-screen").style.display = "block";
+    const authScr = document.getElementById("auth-screen");
+    const appScr = document.getElementById("app-screen");
+    if (authScr) authScr.style.display = "none";
+    if (appScr) appScr.style.display = "block";
     
-    // Atualizar dados no Header
-    document.getElementById("header-brotos-val").innerText = currentUser.brotos;
-    document.getElementById("user-avatar").innerText = currentUser.name.charAt(0).toUpperCase();
+    const brotosVal = document.getElementById("header-brotos-val");
+    const avatar = document.getElementById("user-avatar");
+    
+    if (brotosVal) brotosVal.innerText = currentUser.brotos;
+    if (avatar) avatar.innerText = currentUser.name.charAt(0).toUpperCase();
 
-    // Renderizar telas iniciais
     renderCatalog();
     renderGiftSelection();
     renderCourses();
@@ -170,15 +195,12 @@ function logout() {
 // 4. MECANISMOS DE NAVEGAÇÃO ENTRE ABAS
 // ==========================================
 function navigateTo(tabId) {
-    // Esconder todas as seções
     document.querySelectorAll(".tab-content").forEach(el => el.style.display = "none");
-    // Remover classe ativa dos botões do menu
     document.querySelectorAll(".nav button").forEach(btn => btn.classList.remove("active"));
 
-    // Mostrar seção desejada
-    document.getElementById(`page-${tabId}`).style.display = "block";
+    const targetPage = document.getElementById(`page-${tabId}`);
+    if (targetPage) targetPage.style.display = "block";
     
-    // Deixar botão ativo no menu
     const activeBtn = document.getElementById(`nav-${tabId}`);
     if (activeBtn) activeBtn.classList.add("active");
 
@@ -190,15 +212,19 @@ function navigateTo(tabId) {
 // ==========================================
 function filterDifficulty(difficulty, btnElement) {
     currentDifficultyFilter = difficulty;
-    const parent = btnElement.parentElement;
-    parent.querySelectorAll("button").forEach(b => b.classList.remove("active"));
-    btnElement.classList.add("active");
+    if (btnElement && btnElement.parentElement) {
+        btnElement.parentElement.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+        btnElement.classList.add("active");
+    }
     renderCatalog();
 }
 
 function renderCatalog() {
     const grid = document.getElementById("plants-grid");
-    const searchQuery = document.getElementById("search-plant").value.toLowerCase();
+    if (!grid) return;
+    
+    const searchEl = document.getElementById("search-plant");
+    const searchQuery = searchEl ? searchEl.value.toLowerCase() : "";
     grid.innerHTML = "";
 
     const filtered = PLANTS.filter(p => {
@@ -239,12 +265,14 @@ function showPlantDetail(plantId) {
     if (!plant) return;
 
     const container = document.getElementById("plant-detail-content");
+    if (!container) return;
+
     container.innerHTML = `
         <div class="detail-img">
             <img src="${plant.imageUrl}" alt="${plant.name}">
         </div>
         <div>
-            <span class="eyebrow">${plant.tag} • Nível ${plant.difficulty}</span>
+            <span class="eyebrow">${plant.tag} • Nivel ${plant.difficulty}</span>
             <h1>${plant.name}</h1>
             <span class="origin">Nativa de: ${plant.origin}</span>
             <p class="story">${plant.desc}</p>
@@ -261,12 +289,12 @@ function showPlantDetail(plantId) {
             </div>
 
             <div class="curio">
-                <strong>Curiosidade Histórica:</strong> ${plant.curiosity}
+                <strong>Curiosidade:</strong> ${plant.curiosity}
             </div>
 
             <div class="detail-price">
                 <span class="p">R$ ${plant.price.toFixed(2)}</span>
-                <span style="color: var(--green); font-weight: 500;">🌱 +${plant.brotos} Brotos fidelidade</span>
+                <span style="color: var(--green); font-weight: 500;">🌱 +${plant.brotos} Brotos</span>
             </div>
 
             <div class="detail-actions">
@@ -283,8 +311,10 @@ function showPlantDetail(plantId) {
 // 6. GERENCIAMENTO DE CARRINHO E CHECKOUT
 // ==========================================
 function toggleCart(open) {
-    document.getElementById("cart-drawer").style.display = open ? "flex" : "none";
-    document.getElementById("cart-drawer-overlay").style.display = open ? "block" : "none";
+    const drawer = document.getElementById("cart-drawer");
+    const overlay = document.getElementById("cart-drawer-overlay");
+    if (drawer) drawer.style.display = open ? "flex" : "none";
+    if (overlay) overlay.style.display = open ? "block" : "none";
     if (open) renderCart();
 }
 
@@ -304,8 +334,10 @@ function addToCart(plantId) {
 }
 
 function updateCartCounter() {
+    const counter = document.getElementById("cart-counter");
+    if (!counter) return;
     const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
-    document.getElementById("cart-counter").innerText = totalItems;
+    counter.innerText = totalItems;
 }
 
 function changeQty(plantId, amount) {
@@ -328,10 +360,11 @@ function removeFromCart(plantId) {
 
 function renderCart() {
     const container = document.getElementById("cart-items-container");
+    if (!container) return;
     container.innerHTML = "";
 
     if (cart.length === 0) {
-        container.innerHTML = `<div class="empty">Seu carrinho está vazio.<br>Escolha plantas incríveis no catálogo!</div>`;
+        container.innerHTML = `<div class="empty">Seu carrinho esta vazio.</div>`;
         document.getElementById("cart-total-price").innerText = "R$ 0,00";
         document.getElementById("cart-brotos-reward").innerText = "🌱 0";
         return;
@@ -385,7 +418,7 @@ function openCheckoutModal() {
         total += item.plant.price * item.quantity;
     });
     summaryHtml += `</ul><div style="border-top:1px solid var(--line); margin-top:10px; padding-top:10px; display:flex; justify-content:space-between; font-weight:700; font-size:16px;">
-        <span>Total Compra:</span><span>R$ ${total.toFixed(2)}</span>
+        <span>Total:</span><span>R$ ${total.toFixed(2)}</span>
     </div>`;
 
     document.getElementById("checkout-summary").innerHTML = summaryHtml;
@@ -395,23 +428,18 @@ function openCheckoutModal() {
 function processCheckout() {
     let gainedBrotos = cart.reduce((acc, item) => acc + item.plant.brotos * item.quantity, 0);
     
-    // Atualizar dados locais do usuário ativo
     currentUser.brotos += gainedBrotos;
     currentUser.history.unshift({
-        action: "Compra de plantas no Catálogo",
+        action: "Compra de plantas no Catalogo",
         val: gainedBrotos,
         type: "plus",
         date: "10/06/2026"
     });
 
-    // Sincronizar banco de dados no localStorage
     updateUserInDatabase();
-
-    // Limpar carrinho
     cart = [];
     updateCartCounter();
 
-    // Trocar modal para sucesso
     document.getElementById("modal-checkout").style.display = "none";
     document.getElementById("success-brotos-gain").innerText = `🌱 +${gainedBrotos} Brotos`;
     document.getElementById("modal-success").style.display = "flex";
@@ -428,6 +456,7 @@ function closeSuccessAndGoToBrotos() {
 // ==========================================
 function renderGiftSelection() {
     const grid = document.getElementById("gift-selection-grid");
+    if (!grid) return;
     grid.innerHTML = "";
 
     PLANTS.forEach(p => {
@@ -442,7 +471,6 @@ function renderGiftSelection() {
         grid.appendChild(btn);
     });
 
-    // Seleciona a primeira planta por padrão
     selectGiftPlant(PLANTS[0].id);
 }
 
@@ -463,23 +491,22 @@ function nextGiftStep(stepNum) {
     document.getElementById("step-3-indicator").className = stepNum === 3 ? "step on" : "step";
 
     if (stepNum === 3) {
-        const de = document.getElementById("gift-from").value.trim() || "Alguém especial";
+        const de = document.getElementById("gift-from").value.trim() || "Alguem especial";
         const para = document.getElementById("gift-to").value.trim() || "Amigo Querido";
-        const msg = document.getElementById("gift-msg").value.trim() || "Cultive conexões e boas energias!";
+        const msg = document.getElementById("gift-msg").value.trim() || "Cultive conexoes!";
         const plant = PLANTS.find(p => p.id === selectedGiftPlantId);
 
         document.getElementById("lbl-gift-to").innerText = para;
         document.getElementById("lbl-gift-msg").innerText = msg;
         document.getElementById("lbl-gift-from").innerText = de;
-        document.getElementById("lbl-gift-plant-bonus").innerHTML = `🎁 Acompanha uma linda <strong>${plant.name}</strong> contendo histórias exclusivas.`;
+        document.getElementById("lbl-gift-plant-bonus").innerHTML = `🎁 Acompanha uma <strong>${plant.name}</strong>.`;
     }
 }
 
 function finalizeGift() {
-    // Premiar usuário por presentear (+50 brotos)
     currentUser.brotos += 50;
     currentUser.history.unshift({
-        action: `Presente enviado para ${document.getElementById("gift-to").value || "Alguém"}`,
+        action: `Presente enviado para ${document.getElementById("gift-to").value || "Alguem"}`,
         val: 50,
         type: "plus",
         date: "10/06/2026"
@@ -488,13 +515,12 @@ function finalizeGift() {
     updateUserInDatabase();
     showApp();
 
-    // Resetar campos de texto
     document.getElementById("gift-from").value = "";
     document.getElementById("gift-to").value = "";
     document.getElementById("gift-msg").value = "";
     nextGiftStep(1);
 
-    showToast("Presente gerado! +50 Brotos adicionados 🌱");
+    showToast("Presente gerado! +50 Brotos 🌱");
     navigateTo("brotos");
 }
 
@@ -503,14 +529,19 @@ function finalizeGift() {
 // ==========================================
 function filterCourses(level, btnElement) {
     currentCourseFilter = level;
-    const parent = btnElement.parentElement;
-    parent.querySelectorAll("button").forEach(b => b.classList.remove("active"));
-    btnElement.classList.add("active");
+    if (btnElement && btnElement.parentElement) {
+        btnElement.parentElement.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+        btnElement.classList.add("active");
+    }
     renderCourses();
 }
 
+// Definição global da função para evitar o erro de ReferenceError no HTML
+window.filterCourses = filterCourses;
+
 function renderCourses() {
     const grid = document.getElementById("courses-grid");
+    if (!grid) return;
     grid.innerHTML = "";
 
     const filtered = COURSES.filter(c => currentCourseFilter === "Todos" || c.level === currentCourseFilter);
@@ -526,7 +557,7 @@ function renderCourses() {
             <p>${c.desc}</p>
             <div class="course-foot">
                 <span>⏱️ ${c.duration}</span>
-                <span>📚 ${c.lessons} lições</span>
+                <span>📚 ${c.lessons} licoes</span>
             </div>
         `;
         grid.appendChild(card);
@@ -551,7 +582,6 @@ function openCourseModal(courseId) {
     watchBtn.onclick = () => {
         window.open(course.youtubeUrl, "_blank");
         
-        // Simular prêmio por assistir a aula (Ganha 15 Brotos por estudo)
         currentUser.brotos += 15;
         currentUser.history.unshift({
             action: `Concluiu o curso: ${course.title}`,
@@ -561,7 +591,7 @@ function openCourseModal(courseId) {
         });
         updateUserInDatabase();
         showApp();
-        showToast("Obrigado por estudar! +15 Brotos na sua conta! 🌱");
+        showToast("+15 Brotos na sua conta! 🌱");
         closeModals();
     };
 
@@ -572,10 +602,11 @@ function openCourseModal(courseId) {
 // 9. ABA: MEUS BROTOS (FIDELIDADE & RECOMPENSAS)
 // ==========================================
 function renderBrotosPage() {
-    document.getElementById("brotos-saldo-display").innerText = currentUser.brotos;
+    const display = document.getElementById("brotos-saldo-display");
+    if (display) display.innerText = currentUser.brotos;
 
-    // Renderizar Recompensas
     const grid = document.getElementById("rewards-grid");
+    if (!grid) return;
     grid.innerHTML = "";
 
     REWARDS.forEach(r => {
@@ -594,12 +625,12 @@ function renderBrotosPage() {
         grid.appendChild(card);
     });
 
-    // Renderizar Histórico
     const histList = document.getElementById("history-list");
+    if (!histList) return;
     histList.innerHTML = "";
 
     if (currentUser.history.length === 0) {
-        histList.innerHTML = `<p style="color:var(--muted); font-size:14px;">Nenhuma movimentação registrada.</p>`;
+        histList.innerHTML = `<p style="color:var(--muted); font-size:14px;">Nenhuma movimentacao.</p>`;
         return;
     }
 
@@ -623,12 +654,11 @@ function redeemReward(rewardId) {
     const reward = REWARDS.find(r => r.id === rewardId);
     if (!reward || currentUser.brotos < reward.cost) return;
 
-    // Deduzir pontos
     currentUser.brotos -= reward.cost;
     const uniqueCoupon = `FLOR-${Math.random().toString(36).substring(2, 6).toUpperCase()}-${reward.cost}`;
     
     currentUser.history.unshift({
-        action: `Resgate de Cupom: ${reward.title}`,
+        action: `Resgate: ${reward.title}`,
         val: reward.cost,
         type: "minus",
         date: "10/06/2026"
@@ -637,13 +667,12 @@ function redeemReward(rewardId) {
     updateUserInDatabase();
     showApp();
 
-    // Mostrar cupom na tela modal
     document.getElementById("displayed-coupon-code").innerText = uniqueCoupon;
     document.getElementById("modal-reward-success").style.display = "flex";
 }
 
 // ==========================================
-// 10. FUNÇÕES UTILITÁRIAS DO SISTEMA (MODAIS, TOASTS)
+// 10. FUNÇÕES UTILITÁRIAS DO SISTEMA
 // ==========================================
 function updateUserInDatabase() {
     const users = JSON.parse(localStorage.getItem("fl_users"));
@@ -655,17 +684,24 @@ function updateUserInDatabase() {
 }
 
 function closeModals() {
-    document.getElementById("modal-checkout").style.display = "none";
-    document.getElementById("modal-success").style.display = "none";
-    document.getElementById("modal-course").style.display = "none";
-    document.getElementById("modal-reward-success").style.display = "none";
+    const m1 = document.getElementById("modal-checkout");
+    const m2 = document.getElementById("modal-success");
+    const m3 = document.getElementById("modal-course");
+    const m4 = document.getElementById("modal-reward-success");
+    
+    if (m1) m1.style.display = "none";
+    if (m2) m2.style.display = "none";
+    if (m3) m3.style.display = "none";
+    if (m4) m4.style.display = "none";
 }
 
 function showToast(text) {
     const toast = document.getElementById("toast");
+    if (!toast) return;
     toast.innerText = text;
     toast.style.display = "block";
     setTimeout(() => {
         toast.style.display = "none";
     }, 3500);
 }
+
