@@ -1,23 +1,287 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Florescer — Plantas que contam histórias</title>
-    <meta name="author" content="Lovable"/>
-    <meta name="description" content="Florescer é um jardim digital: catálogo de plantas raras, cursos de botânica, presentes vivos e o programa de fidelidade Brotos."/>
-    
-    <meta property="og:type" content="website"/>
-    <meta property="og:title" content="Florescer — Plantas que contam histórias"/>
-    <meta property="og:description" content="Catálogo de plantas, cursos, presentes e fidelidade Brotos."/>
-    
-    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="fl-root">
 
-    <div id="root" class="fl-root"></div>
+    <div id="auth-screen" class="auth-wrap">
+        <div class="auth-art">
+            <div class="brand-badge">Florescer</div>
+            <div class="auth-art-txt">
+                <h1 class="serif">Plantas com<br>História.</h1>
+                <p>Descubra espécimes raras, aprenda botânica do zero e cultive conexões vivas.</p>
+            </div>
+        </div>
+        <div class="auth-form">
+            <div id="login-card" class="auth-card">
+                <h2 class="serif">Bem-vindo de volta</h2>
+                <p class="sub">Insira seus dados para acessar o jardim</p>
+                <div id="login-error" class="err" style="display: none;"></div>
+                <form id="form-login">
+                    <div class="field">
+                        <label>E-MAIL</label>
+                        <input type="email" id="login-email" required placeholder="seu@email.com">
+                    </div>
+                    <div class="field">
+                        <label>SENHA</label>
+                        <input type="password" id="login-senha" required placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="btn-primary">Entrar no Projeto</button>
+                </form>
+                <p class="swap">Não tem uma conta? <button onclick="toggleAuthMode(false)">Cadastre-se</button></p>
+            </div>
 
-    <script type="module" src="/assets/index-CG4RqI-V.js"></script>
-    <script type="module" src="/assets/index-BwqBOO4G.js"></script>
+            <div id="register-card" class="auth-card" style="display: none;">
+                <h2 class="serif">Criar sua conta</h2>
+                <p class="sub">Comece sua jornada botânica hoje mesmo</p>
+                <div id="register-error" class="err" style="display: none;"></div>
+                <form id="form-register">
+                    <div class="field">
+                        <label>NOME COMPLETO</label>
+                        <input type="text" id="reg-name" required placeholder="Seu nome">
+                    </div>
+                    <div class="field">
+                        <label>E-MAIL</label>
+                        <input type="email" id="reg-email" required placeholder="seu@email.com">
+                    </div>
+                    <div class="field">
+                        <label>SENHA</label>
+                        <input type="password" id="reg-senha" required placeholder="Mínimo 6 caracteres">
+                    </div>
+                    <button type="submit" class="btn-primary">Criar Conta</button>
+                </form>
+                <p class="swap">Já possui conta? <button onclick="toggleAuthMode(true)">Fazer Login</button></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="app-screen" style="display: none;">
+        <header class="header">
+            <div class="header-in">
+                <div class="logo">Florescer</div>
+                <nav class="nav">
+                    <button id="nav-catalog" class="active" onclick="navigateTo('catalog')">Catálogo</button>
+                    <button id="nav-gift" onclick="navigateTo('gift')">Dar Presente</button>
+                    <button id="nav-learn" onclick="navigateTo('learn')">Aprender</button>
+                    <button id="nav-brotos" onclick="navigateTo('brotos')">Meus Brotos</button>
+                </nav>
+                <div class="header-r">
+                    <div class="brotos-pill">
+                        <span>🌱</span> <span id="header-brotos-val">247</span>
+                    </div>
+                    <button class="cart-btn" onclick="toggleCart(true)">
+                        🛒 <span class="cart-count" id="cart-counter">0</span>
+                    </button>
+                    <div class="avatar" id="user-avatar" title="Perfil">U</div>
+                    <button class="logout" onclick="logout()">Sair</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="page">
+            
+            <section id="page-catalog" class="tab-content">
+                <div class="hero">
+                    <span class="eyebrow">Coleção Botânica</span>
+                    <h1 class="serif">Plantas que contam histórias</h1>
+                    <p>Espécimes selecionadas por sua raridade, beleza e ancestralidade histórica.</p>
+                </div>
+                <div class="filters">
+                    <input type="text" id="search-plant" placeholder="Buscar planta pelo nome..." class="chip" style="width:260px; padding:8px 15px; border-radius:12px;">
+                    <button class="chip active" onclick="filterDifficulty('Todas', this)">Todas</button>
+                    <button class="chip" onclick="filterDifficulty('Fácil', this)">Fácil</button>
+                    <button class="chip" onclick="filterDifficulty('Média', this)">Média</button>
+                    <button class="chip" onclick="filterDifficulty('Especialista', this)">Especialista</button>
+                </div>
+                <div class="grid" id="plants-grid"></div>
+            </section>
+
+            <section id="page-detail" class="tab-content" style="display: none;">
+                <button class="back" onclick="navigateTo('catalog')">← Voltar ao Catálogo</button>
+                <div class="detail" id="plant-detail-content"></div>
+            </section>
+
+            <section id="page-gift" class="tab-content" style="display: none;">
+                <div class="hero">
+                    <span class="eyebrow">Presente Vivo</span>
+                    <h1 class="serif">Envie uma história em folha</h1>
+                    <p>Escolha uma planta, escreva sua mensagem e nós geramos um cartão comemorativo especial.</p>
+                </div>
+                <div class="steps">
+                    <div class="step on" id="step-1-indicator"><span class="n">1</span> Escolher Planta</div>
+                    <div class="step" id="step-2-indicator"><span class="n">2</span> Mensagem</div>
+                    <div class="step" id="step-3-indicator"><span class="n">3</span> Revisão</div>
+                </div>
+                <div class="gift-box">
+                    <div id="gift-step-1">
+                        <h2>Selecione o presente perfeito:</h2>
+                        <p class="lead">Qual planta dará vida aos seus sentimentos?</p>
+                        <div class="gift-grid" id="gift-selection-grid"></div>
+                        <div class="row-btns" style="justify-content: flex-end;">
+                            <button class="btn-buy" style="max-width:200px;" onclick="nextGiftStep(2)">Avançar</button>
+                        </div>
+                    </div>
+                    <div id="gift-step-2" style="display: none;">
+                        <h2>Quem vai receber?</h2>
+                        <div class="field">
+                            <label>DE:</label>
+                            <input type="text" id="gift-from" placeholder="Seu nome">
+                        </div>
+                        <div class="field">
+                            <label>PARA:</label>
+                            <input type="text" id="gift-to" placeholder="Nome da pessoa querida">
+                        </div>
+                        <div class="field">
+                            <label>MENSAGEM NO CARTÃO:</label>
+                            <textarea id="gift-msg" placeholder="Escreva palavras que florescem..."></textarea>
+                        </div>
+                        <div class="row-btns">
+                            <button class="btn-ghost" onclick="nextGiftStep(1)">Voltar</button>
+                            <button class="btn-buy" onclick="nextGiftStep(3)">Visualizar Cartão</button>
+                        </div>
+                    </div>
+                    <div id="gift-step-3" style="display: none;">
+                        <div class="letter">
+                            <div class="seal">✉️</div>
+                            <h3 class="serif">Uma surpresa para <span id="lbl-gift-to"></span></h3>
+                            <p class="msg">"<span id="lbl-gift-msg"></span>"</p>
+                            <p style="font-size: 14px; color: var(--muted);">Com carinho, <strong id="lbl-gift-from"></strong></p>
+                            <p style="margin-top:20px; font-size:13px;" id="lbl-gift-plant-bonus"></p>
+                        </div>
+                        <div class="row-btns">
+                            <button class="btn-ghost" onclick="nextGiftStep(2)">Editar</button>
+                            <button class="btn-buy" onclick="finalizeGift()">Confirmar e Enviar (+50 Brotos)</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="page-learn" class="tab-content" style="display: none;">
+                <div class="hero">
+                    <span class="eyebrow">Escola de Botânica</span>
+                    <h1 class="serif">Aprenda a ouvir suas plantas</h1>
+                    <p>Aulas diretas e sem enrolação para entender o ecossistema de cada espécie.</p>
+                </div>
+                <div class="filters">
+                    <button class="chip active" onclick="filterCourses('Todos', this)">Todos Níveis</button>
+                    <button class="chip" onclick="filterCourses('Iniciante', this)">Iniciante</button>
+                    <button class="chip" onclick="filterCourses('Intermediário', this)">Intermediário</button>
+                    <button class="chip" onclick="filterCourses('Avançado', this)">Avançado</button>
+                </div>
+                <div class="grid" id="courses-grid"></div>
+            </section>
+
+            <section id="page-brotos" class="tab-content" style="display: none;">
+                <div class="brotos-hero">
+                    <span class="lbl">Seu saldo atual</span>
+                    <div class="big" id="brotos-saldo-display">247</div>
+                    <p style="margin-top:8px;">Brotos são gerados comprando plantas, enviando presentes ou estudando!</p>
+                </div>
+                <h2 class="serif" style="font-size:32px; margin-bottom:16px;">Recompensas Disponíveis</h2>
+                <div class="grid" id="rewards-grid"></div>
+
+                <div class="history">
+                    <h2 class="serif">Histórico de Transações</h2>
+                    <div id="history-list"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="cart-drawer-overlay" class="drawer-ov" style="display: none;" onclick="toggleCart(false)"></div>
+    <div id="cart-drawer" class="drawer" style="display: none;">
+        <div class="drawer-head">
+            <h2>Seu Carrinho</h2>
+            <button onclick="toggleCart(false)" style="font-size:24px;">×</button>
+        </div>
+        <div class="drawer-body" id="cart-items-container"></div>
+        <div class="drawer-foot">
+            <div class="foot-row">
+                <span>Ganha em pontos:</span>
+                <strong id="cart-brotos-reward" style="color:var(--green)">🌱 0</strong>
+            </div>
+            <div class="foot-row total">
+                <span>Total:</span>
+                <span id="cart-total-price">R$ 0,00</span>
+            </div>
+            <button class="btn-primary" style="margin-top:14px;" onclick="openCheckoutModal()">Ir para o Checkout</button>
+        </div>
+    </div>
+
+    <div id="modal-checkout" class="overlay" style="display: none;">
+        <div class="modal" style="position:relative;">
+            <button class="close-x" onclick="closeModals()">×</button>
+            <div class="modal-head">
+                <h2 class="serif">Finalizar Pedido</h2>
+            </div>
+            <div class="modal-body">
+                <p style="background:#fff3e0; color:#e65100; padding:12px; border-radius:10px; font-size:13px; margin-bottom:18px;">
+                    ⚠️ <strong>Ambiente de Simulação:</strong> Nenhuma cobrança real será efetuada. Suas plantas e brotos serão computados em sua conta local.
+                </p>
+                <div id="checkout-summary" style="margin-bottom:18px;"></div>
+                <div class="field">
+                    <label>FORMA DE PAGAMENTO</label>
+                    <select id="pay-method" class="chip" style="width:100%; border-radius:12px; height:46px;">
+                        <option value="pix">Pix (Aprovação imediata)</option>
+                        <option value="card">Cartão de Crédito</option>
+                        <option value="boleto">Boleto Bancário</option>
+                    </select>
+                </div>
+                <button class="btn-primary" onclick="processCheckout()" style="margin-top:10px;">Confirmar Pagamento Simulado</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-success" class="overlay" style="display: none;">
+        <div class="success">
+            <div class="check">🎉</div>
+            <h1 class="serif">Pedido Confirmado!</h1>
+            <p>Sua nova história verde está a caminho do seu lar.</p>
+            <div class="gain">
+                <span>Ganhou:</span> <span id="success-brotos-gain">🌱 +0 Brotos</span>
+            </div>
+            <button class="btn-primary" onclick="closeSuccessAndGoToBrotos()">Ver meus pontos</button>
+        </div>
+    </div>
+
+    <div id="modal-course" class="overlay" style="display: none;">
+        <div class="modal" style="position:relative;">
+            <button class="close-x" onclick="closeModals()">×</button>
+            <div class="modal-head">
+                <div id="modal-course-emoji" style="font-size:44px;"></div>
+                <h2 class="serif" id="modal-course-title">Título do Curso</h2>
+            </div>
+            <div class="modal-body">
+                <p id="modal-course-desc" style="color:var(--muted); line-height:1.5; margin-bottom:15px;"></p>
+                <h4 style="text-transform:uppercase; font-size:12px; color:var(--gold); letter-spacing:1px;">Conteúdo das lições:</h4>
+                <ul class="topics" id="modal-course-topics"></ul>
+                <button class="btn-primary" id="btn-watch-course">Assistir Aula no YouTube ➔</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-reward-success" class="overlay" style="display: none;">
+        <div class="modal" style="position:relative; max-width:400px; text-align:center;">
+            <button class="close-x" onclick="closeModals()">×</button>
+            <div class="modal-body" style="padding:40px 28px;">
+                <div style="font-size:50px;">🎁</div>
+                <h2 class="serif" style="margin:10px 0;">Recompensa Resgatada!</h2>
+                <p style="color:var(--muted); font-size:14px; margin-bottom:16px;">Use o cupom abaixo em suas futuras compras ou visitas:</p>
+                <div class="coupon">
+                    <span class="code" id="displayed-coupon-code">FLOR-XXXX</span>
+                </div>
+                <button class="btn-primary" style="margin-top:15px;" onclick="closeModals()">Concluído</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast" style="display: none;">Notificação</div>
+
+    <script src="script.js"></script>
 </body>
 </html>
+
